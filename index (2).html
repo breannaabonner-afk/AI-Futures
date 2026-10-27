@@ -1,0 +1,767 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>±AI Futures</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap">
+<style>
+/* Layout: slim sticky nav, left-aligned poster hero with a sourced stat strip, then stacked sections (manifesto, wins, toolkit, forum) on one 1160px column. */
+:root{
+  --bg:#F0F2EF; --surface:#FFFFFF; --ink:#1E1A16; --ink-soft:#4A4038; --rule:#B5D9DB; --hi:#D5A021; --hi-ink:#0E3336; --civic:#1B5F64; --btn:#1B5F64; --btn-ink:#FFFFFF; --fight:#A32A1B;
+  --display:'Familjen Grotesk','Helvetica Neue',Arial,sans-serif;
+  --body:'Familjen Grotesk','Helvetica Neue',Arial,sans-serif;
+  --mono:'Familjen Grotesk','Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+a{color:var(--civic)}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1160px;margin:0 auto}
+:focus-visible{outline:3px solid var(--civic);outline-offset:2px}
+.muted{color:var(--ink-soft)}
+.mono{font-family:var(--mono)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bg);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:54px}
+.brand{font:900 1.3rem/1 var(--display);font-stretch:70%;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand b{background:var(--hi);color:var(--hi-ink);padding:0 .28em;margin-right:.3em}
+.links{display:flex;gap:2px;overflow-x:auto;min-width:0}
+.links a{font:500 .8rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:10px 10px;white-space:nowrap}
+.links a:hover{background:var(--hi);color:var(--hi-ink)}
+
+/* hero */
+.hero{padding-block:48px 36px}
+h1{font:900 clamp(2.9rem,9.5vw,6.4rem)/.9 var(--display);font-stretch:66%;text-transform:uppercase;margin:0 0 22px;max-width:13ch;text-wrap:balance}
+mark{background:var(--hi);color:var(--hi-ink);padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.subtitle{font:600 clamp(1.15rem,2.6vw,1.65rem)/1.25 var(--body);max-width:46ch;margin:0 0 20px;text-wrap:balance}
+.lede{max-width:62ch;font-size:1.1rem;margin:0 0 24px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.btn{font:600 .95rem var(--body);background:var(--btn);color:var(--btn-ink);border:2px solid var(--btn);border-radius:2px;padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-block;line-height:1.2}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg);filter:none}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn.small{font-size:.85rem;padding:6px 10px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.stat{border-top:4px solid var(--ink);padding-top:12px;min-width:0}
+.stat .n{font:900 clamp(2.6rem,6vw,3.8rem)/1 var(--display);font-stretch:70%;font-variant-numeric:tabular-nums}
+.stat p{margin:6px 0 8px;font-size:.92rem;color:var(--ink-soft)}
+.stat a{font:400 .75rem var(--mono)}
+.fine{font:400 .78rem/1.5 var(--mono);color:var(--ink-soft);margin:20px 0 0}
+
+/* sections */
+.section{padding-block:60px;border-top:1px solid var(--rule)}
+.kicker{font:500 .75rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px}
+h2{font:800 clamp(2.1rem,5.5vw,3.4rem)/.95 var(--display);font-stretch:70%;text-transform:uppercase;margin:0 0 12px;text-wrap:balance}
+.sec-intro{max-width:64ch;margin:0 0 28px;color:var(--ink-soft)}
+h3{margin:0}
+
+/* manifesto */
+.manifesto{max-width:68ch}
+.manifesto p{margin:0 0 16px;font-size:1.1rem}
+.manifesto .pending{border:2px dashed var(--ink-soft);padding:22px;background:var(--surface)}
+.manifesto .pending p{margin:0;color:var(--ink-soft)}
+
+/* people */
+.section.first{border-top:0}
+.links a[aria-current="page"]{background:var(--ink);color:var(--bg)}
+.pgrid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.ph{display:grid;place-items:center;font:900 3.2rem/1 var(--display);font-stretch:70%;color:var(--hi-ink);background:var(--hi);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.person{background:var(--surface);border:1px solid var(--rule);border-radius:2px;display:flex;flex-direction:column;min-width:0}
+.person .ph{height:150px;border-bottom:1px solid var(--rule)}
+.person .pb{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.person h3,.phead h3,.empty h3{font:800 1.5rem/1 var(--display);font-stretch:74%;text-transform:uppercase}
+.person p{margin:0;font-size:.95rem}
+.role{font:500 .8rem var(--mono);color:var(--ink-soft)}
+.empty{border:2px dashed var(--ink-soft);padding:24px;background:var(--surface);max-width:720px;display:grid;gap:10px}
+.empty p{margin:0}
+.pdetail{max-width:780px}
+.phead{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin:20px 0 24px}
+.ph.big{width:120px;height:120px;font-size:2.6rem;border:1px solid var(--rule)}
+.pblock{margin:0 0 24px}
+.pblock h4{font:700 1.05rem var(--body);margin:0 0 6px}
+.ptext{white-space:pre-wrap;margin:0;max-width:68ch}
+.qa{margin:0;display:grid;gap:18px;max-width:68ch}
+.qa dt{font-weight:700}
+.qa dd{margin:4px 0 0;white-space:pre-wrap}
+.plinks{margin:0;padding-left:1.1rem;display:grid;gap:4px}
+
+/* filters */
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.chip{font:500 .8rem var(--body);color:var(--ink);background:transparent;border:1px solid var(--ink-soft);border-radius:999px;padding:6px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip svg{flex:none}
+.count{font:400 .78rem var(--mono);color:var(--ink-soft);margin:0 0 16px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:2px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:7px;font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.date{font:400 .75rem var(--mono);color:var(--ink-soft)}
+.card h3{font:800 1.45rem/1 var(--display);font-stretch:74%;text-transform:uppercase;letter-spacing:.005em}
+.card .sub{font:500 .8rem var(--mono);color:var(--ink-soft);margin-top:-4px}
+.card p{margin:0;font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font:400 .72rem var(--mono);border:1px solid var(--rule);padding:2px 7px;border-radius:2px;color:var(--ink-soft)}
+.srcs{font-size:.82rem;margin-top:auto;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.srcs span{font:500 .7rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
+.linkbtn{background:none;border:0;padding:0;font:600 .85rem var(--body);color:var(--civic);cursor:pointer;text-align:left;text-decoration:underline}
+
+/* patterns */
+.patterns{margin-top:44px}
+.patterns h3{font:800 1.7rem/1 var(--display);font-stretch:72%;text-transform:uppercase;margin-bottom:16px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px 32px}
+.pgrid h4{margin:0 0 4px;font:700 1rem var(--body)}
+.pgrid p{margin:0;font-size:.93rem;color:var(--ink-soft)}
+
+/* panels */
+.panel{background:var(--surface);border:1px solid var(--rule);padding:18px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.panel h3{font:800 1.5rem/1 var(--display);font-stretch:74%;text-transform:uppercase}
+.panel p{margin:0;font-size:.93rem}
+.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.panel li{display:flex;align-items:center;gap:8px;font-size:.9rem}
+.panel .n{margin-left:auto;font:500 .85rem var(--mono);font-variant-numeric:tabular-nums}
+.note{border-top:1px solid var(--rule);padding-top:12px;font-size:.82rem;color:var(--ink-soft)}
+.note p{font-size:.82rem}
+
+/* forms */
+label{display:block;font:600 .85rem var(--body);margin:0 0 4px}
+input[type=text],input[type=url],select,textarea{width:100%;font:400 .95rem var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--ink-soft);border-radius:2px;padding:9px 11px}
+textarea{min-height:130px;resize:vertical;line-height:1.5}
+.field{margin-bottom:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.help{font:400 .75rem var(--mono);color:var(--ink-soft);margin-top:4px}
+.err{color:var(--fight);font-size:.88rem;margin:8px 0 0}
+
+/* toolkit */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:32px 40px}
+.tgrid h3{font:800 1.5rem/1 var(--display);font-stretch:72%;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid var(--ink)}
+.rl{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.rl li{min-width:0}
+.rl a{font-weight:600}
+.rl .by{font:400 .72rem var(--mono);color:var(--ink-soft);display:block;margin-top:2px}
+.rl p{margin:2px 0 0;font-size:.9rem;color:var(--ink-soft)}
+.checklist{margin-top:44px;background:var(--surface);border:1px solid var(--rule);padding:22px}
+.checklist h3{font:800 1.6rem/1 var(--display);font-stretch:72%;text-transform:uppercase;margin-bottom:12px}
+.checklist ul{margin:0;padding-left:1.1rem;display:grid;gap:6px;max-width:80ch}
+
+/* forum */
+.fgrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
+@media (max-width:900px){.fgrid{grid-template-columns:minmax(0,1fr)}}
+.fapp{background:var(--surface);border:1px solid var(--rule);padding:18px;min-height:240px}
+.ftop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.ftop h3{font:800 1.5rem/1 var(--display);font-stretch:74%;text-transform:uppercase}
+.threads{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.trow{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule);padding:12px 4px;cursor:pointer;color:var(--ink);font:inherit}
+.trow:hover{background:var(--bg)}
+.trow .tt{font-weight:600;display:block;overflow-wrap:anywhere}
+.trow .meta,.meta{font:400 .75rem var(--mono);color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:3px}
+.body{white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0}
+.reply{border-top:1px solid var(--rule);padding:12px 0}
+.reply .body{margin:6px 0 0}
+.aside{display:grid;gap:16px}
+.aside .panel h3{font-size:1.3rem}
+.starters{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.starters .chip{text-align:left;border-radius:2px;line-height:1.3}
+.sr{position:absolute;left:-9999px}
+footer{padding-block:36px 56px;border-top:1px solid var(--rule)}
+footer p{margin:0 0 8px;font-size:.85rem;color:var(--ink-soft);max-width:80ch}
+@media (max-width:560px){.stats{grid-template-columns:minmax(0,1fr)}.hero{padding-block:32px 24px}}
+
+/* editorial serif: roman headings with a matching italic */
+h1,h2,.brand,.stat .n,.card h3,.panel h3,.ftop h3,.tgrid h3,.checklist h3,.patterns h3,.person h3,.phead h3,.empty h3,.ph{font-family:var(--display);font-stretch:normal;text-transform:none;font-weight:500;letter-spacing:-.025em}
+h1{font-size:clamp(2.8rem,8.4vw,5.8rem);line-height:.98;max-width:14ch;letter-spacing:-.035em}
+h1 em{font-style:italic;font-weight:400}
+h2{font-size:clamp(2.2rem,5.2vw,3.4rem);line-height:1.02}
+.brand{font-size:1.35rem;font-weight:600;letter-spacing:-.02em;line-height:1}
+.brand b{font-weight:600}
+.subtitle{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(1.3rem,3vw,1.9rem);line-height:1.2;max-width:34ch;letter-spacing:-.01em}
+.stat .n{font-size:clamp(2.6rem,6vw,3.6rem);line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.card h3{font-size:1.55rem;line-height:1.08}
+.panel h3,.ftop h3,.tgrid h3,.person h3,.phead h3,.empty h3{font-size:1.5rem;line-height:1.1}
+.checklist h3{font-size:1.55rem;line-height:1.1}
+.patterns h3{font-size:1.8rem;line-height:1.1}
+.aside .panel h3{font-size:1.35rem}
+.ph{font-size:3rem}
+.ph.big{font-size:2.6rem}
+
+
+/* white page, palette as accents */
+.links a{font:500 1.05rem var(--display);letter-spacing:-.005em;text-transform:none}
+.kicker{font:italic 400 1.25rem/1.3 var(--display);letter-spacing:-.005em;text-transform:none;color:var(--ink-soft)}
+.section h2,.card h3{color:#823221}
+.stat .n{color:#1B5F64}
+.btn.ghost{color:#823221;border-color:#823221}
+.btn.ghost:hover{background:#823221;color:#fff}
+.nav{border-bottom:3px solid var(--hi)}
+.hero{border-bottom:1px solid var(--rule)}
+.stat:nth-child(1){border-top-color:#1B5F64}
+.stat:nth-child(2){border-top-color:#D5A021}
+.stat:nth-child(3){border-top-color:#F3BA85}
+.section h2{border-left:8px solid var(--hi);padding-left:14px}
+#toolkit h2{border-left-color:#1B5F64}
+#forum h2{border-left-color:#F3BA85}
+.card{border-top:5px solid #1B5F64}
+.card:nth-child(4n+2){border-top-color:#D5A021}
+.card:nth-child(4n+3){border-top-color:#F3BA85}
+.card:nth-child(4n+4){border-top-color:#9CCACC}
+.tone-hero.panel,.tone-aqua.panel{border-color:var(--rule)}
+/* palette bands: peach opening, aqua manifesto, brick footer */
+.tone-hero,.tone-aqua,.tone-foot{background:var(--bg);color:var(--ink)}
+.tone-hero{--bg:#F3BA85; --surface:#F7CDA5; --ink:#0E3336; --ink-soft:#1F4A4D; --rule:#D49C6A; --hi:#D5A021; --hi-ink:#0E3336; --civic:#1B5F64; --btn:#1B5F64; --btn-ink:#F0F2EF;}
+.tone-aqua{--bg:#D1EFF0; --surface:#EAF7F7; --ink:#0E3336; --ink-soft:#24545A; --rule:#9CCACC; --hi:#D5A021; --hi-ink:#0E3336; --civic:#1B5F64; --btn:#1B5F64; --btn-ink:#F0F2EF;}
+.tone-foot{--bg:#823221; --surface:#6E2A1C; --ink:#F0F2EF; --ink-soft:#E8CFC6; --rule:#A5604F; --civic:#F3BA85;}
+
+/* CUP-inspired: bold grotesk, yellow framed nav, shape stats; earthy tones */
+:root{--yellow:#F3DC8E;--terra:#D9784F;--sage:#B9C79A}
+h1,h2,h3,.brand,.stat .n,.card h3,.panel h3,.ftop h3,.tgrid h3,.checklist h3,.patterns h3,.person h3,.phead h3,.empty h3,.ph{font-family:var(--display);font-style:normal;font-stretch:normal;text-transform:none;font-weight:700;letter-spacing:-.02em}
+h1{font-weight:700;letter-spacing:-.035em;line-height:1;max-width:15ch}
+h1 em{font-style:normal;font-weight:700;color:inherit}
+h1 mark{background:none;color:inherit;padding:0}
+.subtitle,.kicker,.lede{font-family:var(--body);font-style:normal}
+.subtitle{font-weight:500;font-size:clamp(1.2rem,2.6vw,1.6rem);letter-spacing:-.01em}
+.kicker{font-weight:500;font-size:1.1rem;letter-spacing:0}
+.nav{background:var(--yellow);border:2px solid var(--ink);margin:10px 10px 0}
+.nav .wrap{min-height:64px}
+.links a{font:600 1.05rem var(--body);letter-spacing:0}
+.brand{font-size:1.45rem}
+.brand b{background:none;color:inherit;padding:0;margin-right:.25em}
+.links a:hover{background:var(--ink);color:var(--yellow)}
+.section h2{border-left:0;padding-left:0}
+.stats{justify-items:center;text-align:center;gap:36px 24px}
+.stat{border-top:0;padding-top:0;display:flex;flex-direction:column;align-items:center}
+.stat .n{display:grid;place-items:center;width:100%;max-width:250px;height:190px;margin:0 0 14px;font-size:clamp(2.6rem,6vw,3.6rem);font-weight:500;letter-spacing:-.03em;color:var(--ink);border:1px solid var(--ink)}
+.stat:nth-child(1) .n{background:var(--terra);border-radius:50%;width:190px}
+.stat:nth-child(2) .n{background:#D1EFF0;border:0;clip-path:polygon(0 0,100% 0,92% 25%,100% 50%,92% 75%,100% 100%,0 100%,8% 75%,0 50%,8% 25%)}
+.stat:nth-child(3) .n{background:var(--sage);border:0;border-radius:0;width:200px;height:200px;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='32' cy='32' r='26'/%3E%3Ccircle cx='68' cy='32' r='26'/%3E%3Ccircle cx='32' cy='68' r='26'/%3E%3Ccircle cx='68' cy='68' r='26'/%3E%3Crect x='32' y='32' width='36' height='36'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='32' cy='32' r='26'/%3E%3Ccircle cx='68' cy='32' r='26'/%3E%3Ccircle cx='32' cy='68' r='26'/%3E%3Ccircle cx='68' cy='68' r='26'/%3E%3Crect x='32' y='32' width='36' height='36'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.stats{align-items:start}
+.kicker{margin-bottom:16px}
+.stat p{max-width:30ch}
+.btn{border-radius:999px;border:2px solid var(--ink);background:var(--yellow);color:var(--ink);font-weight:600}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover,.btn:hover{background:var(--ink);color:var(--yellow);filter:none}
+.btn[disabled]{opacity:.5}
+
+/* shapes v2: arch, hexagon, scalloped badge */
+.stat:nth-child(n) .n{-webkit-mask:none;mask:none;clip-path:none;border:0;border-radius:0}
+.stat:nth-child(1) .n{background:var(--terra);width:190px;height:210px;border-radius:95px 95px 0 0;margin-top:0;margin-bottom:14px}
+.stat:nth-child(2) .n{background:#D1EFF0;width:240px;height:200px;clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%)}
+.stat:nth-child(3) .n{background:var(--sage);width:210px;height:210px;clip-path:polygon(50.0% 0.0%,58.9% 11.0%,71.7% 5.0%,74.9% 18.7%,89.1% 18.8%,86.0% 32.6%,98.7% 38.9%,90.0% 50.0%,98.7% 61.1%,86.0% 67.4%,89.1% 81.2%,74.9% 81.3%,71.7% 95.0%,58.9% 89.0%,50.0% 100.0%,41.1% 89.0%,28.3% 95.0%,25.1% 81.3%,10.9% 81.2%,14.0% 67.4%,1.3% 61.1%,10.0% 50.0%,1.3% 38.9%,14.0% 32.6%,10.9% 18.8%,25.1% 18.7%,28.3% 5.0%,41.1% 11.0%);margin-top:0;margin-bottom:14px}
+</style>
+
+<header class="nav band">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>±AI</b>Futures</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#manifesto">Manifesto</a><a href="#toolkit">Toolkit</a><a href="#forum">Forum</a><a href="#people">People</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div id="view-home">
+<section class="hero band">
+  <div class="wrap">
+    <p class="kicker">A community space for people organizing around AI</p>
+    <h1><mark>±AI</mark> <em>Futures</em></h1>
+    <p class="subtitle">Participatory Framework for Asserting Biological Rights in the Era of AI Acceleration</p>
+    <p class="lede">A supportive space to gather resources and archives on how to approach activism around AI, and to understand what AI means for our bodies and our rights. Learn from communities that have pushed back, find organizing toolkits, and ask questions in the forum.</p>
+    <div class="actions">
+      <a class="btn" href="#toolkit">Explore the toolkit</a>
+      <a class="btn ghost" href="#forum">Ask in the forum</a>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="n">20+</div>
+        <p>US data center projects canceled after local pushback in the first quarter of 2026, representing more than $41.7 billion and 3.5 gigawatts of planned demand.</p>
+        <a href="https://heatmap.news/politics/local-opposition-data-center-cancellations" target="_blank" rel="noopener noreferrer">Heatmap Pro, May 2026</a>
+      </div>
+      <div class="stat">
+        <div class="n">45</div>
+        <p>US projects worth $68 billion blocked or delayed by local opposition in the second quarter of 2026.</p>
+        <a href="https://aiweekly.co/alerts/data-center-watch-45-us-ai-data-center-projects-worth-68b-blocked-or-delayed-in" target="_blank" rel="noopener noreferrer">Data Center Watch, via AI Weekly</a>
+      </div>
+      <div class="stat">
+        <div class="n">843</div>
+        <p>Local opposition groups across 49 states, as reported from the same Data Center Watch work in September 2026.</p>
+        <a href="https://aiweekly.co/alerts/data-center-watch-45-us-ai-data-center-projects-worth-68b-blocked-or-delayed-in" target="_blank" rel="noopener noreferrer">Data Center Watch, via AI Weekly</a>
+      </div>
+    </div>
+    <p class="fine">The two trackers count differently. Compare trends within each, not totals across them.</p>
+  </div>
+</section>
+
+<section class="section band" id="manifesto">
+  <div class="wrap">
+    <p class="kicker">Where we stand</p>
+    <h2>Manifesto</h2>
+    <div class="manifesto">
+      <div class="pending">
+        <p>Our manifesto will be published here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="toolkit">
+  <div class="wrap">
+    <p class="kicker">Resources</p>
+    <h2>Toolkits, data and frameworks</h2>
+    <p class="sec-intro">Start with the Commons Library hub, which collects many of the toolkits below. Then use the trackers to find what is proposed near you.</p>
+    <div class="tgrid" id="resources"></div>
+    <div class="checklist">
+      <h3>First week of a site fight</h3>
+      <ul>
+        <li>Find the zoning rules, the planning or council agenda, and the notice requirements for the proposed site. Check whether notice was given correctly.</li>
+        <li>Request planning, environmental, water and power documents through public records channels. Ask whether non-disclosure agreements are involved.</li>
+        <li>Ask for a public hearing, and prepare short testimony from several neighbors rather than one long speech.</li>
+        <li>Start a group that people can join in one step, and track proposals nearby with the trackers listed above.</li>
+        <li>Link up with groups in neighboring places. The toolkits from AlgorithmWatch, MediaJustice and the Data Center Working Group, all listed in the Commons Library hub, cover these steps.</li>
+      </ul>
+      <p class="fine">Summarized from the toolkit descriptions in the Commons Library hub.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="forum">
+  <div class="wrap">
+    <p class="kicker">Ask and answer</p>
+    <h2>Forum</h2>
+    <p class="sec-intro">Ask a question about a project near you, share local intelligence, or tell us about a campaign, including examples of AI and data sovereignty work.</p>
+    <div class="fgrid">
+      <div class="fapp" id="fapp" aria-live="polite"></div>
+      <div class="aside">
+        <div class="panel tone-hero">
+          <h3>Ground rules</h3>
+          <p>Name facilities, companies and officials in their public roles. Do not post home addresses, phone numbers or other personal details about private individuals, and do not post anything meant to harass or threaten anyone.</p>
+          <p>Posts are visible to everyone who can open this page. The site owner and editors can remove posts.</p>
+        </div>
+        <div class="panel tone-aqua">
+          <h3>Start with a question</h3>
+          <div class="starters" id="starters"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div id="view-people" hidden>
+<section class="section band first" id="people-top">
+  <div class="wrap">
+    <p class="kicker">Who is doing this work</p>
+    <h2>People</h2>
+    <p class="sec-intro">Interviews and profiles of people working on AI, data and community rights. Each profile covers the person, their work and their community, in their own words.</p>
+    <div id="people-body"></div>
+    <div class="patterns">
+      <h3>How profiles are made</h3>
+      <div class="pgrid">
+        <div><h4>Their words first</h4><p>Each profile centers an interview. People review the text and can correct it before it is published.</p></div>
+        <div><h4>Consent and control</h4><p>Each person decides what to share, including their name, photo, location and links. Some organizers face harassment, so a pseudonym or leaving details out is always an option.</p></div>
+        <div><h4>Community, not only individuals</h4><p>Each profile also describes the group, place or movement the person works with, and credits others who share the work.</p></div>
+        <div><h4>Sources and dates</h4><p>Claims about campaigns link to public reporting where it exists, and each profile shows when the interview took place.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</main>
+
+<footer class="band tone-foot">
+  <div class="wrap">
+    <p>Compiled October 14, 2026 from the linked reporting, tracker pages and primary sources. Verify against the primary source before you publish or testify.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- data ---------- */
+var RESOURCES = [
+ {h:'Organizing toolkits',items:[
+  ['How to Stop a Data Centre: Tools for Community Resistance','https://commonslibrary.org/how-to-stop-a-data-centre-tools-for-community-resistance/','Commons Social Change Library, June 2026','A hub of toolkits, videos, maps and research. Also lists the Site Fight Guide (Data Center Working Group), the No Data Centers Toolkit (Honor the Earth, Indigenous-led), How to Resist Data Centers (AlgorithmWatch, Europe), MediaJustice’s Toolkit for the Field and The People Say No, and Food & Water Watch’s guide.'],
+  ['North Star Data Center Policy Toolkit','https://datacenters.ainowinstitute.org/','AI Now Institute','Local, state and federal policy options across eleven issue areas, with example policies rated by strength.'],
+  ['Big Tech Unchecked: Hyperscale Data Centers in Wisconsin','https://www.sierraclub.org/wisconsin/blog/2025/12/new-toolkit-helps-communities-push-back-against-big-tech-data-center','Sierra Club Wisconsin and partners, December 2025','Helps residents assess a proposal, push for transparency and take part in permitting. Menomonie organizers helped develop it.'],
+  ['Sierra Club data center toolkit (PDF)','https://www.sierraclub.org/sites/default/files/2026-05/njsc-data-center-toolkit.pdf','Sierra Club, May 2026',''],
+  ['AI toolkit for resisting data centre development in Canada','https://canadians.org/analysis/ai-toolkit-resisting-data-centre-development-in-canada/','Council of Canadians','']
+ ]},
+ {h:'Trackers and data',items:[
+  ['Data Center Watch reports','https://datacenterwatch.org/report','10a Labs','Quarterly counts of projects blocked or delayed by local opposition.'],
+  ['Heatmap data center opposition reporting','https://heatmap.news/politics/local-opposition-data-center-cancellations','Heatmap Pro','Counts of cancellations after local pushback and a database of opposition fights.'],
+  ['Data Center Moratorium Tracker','https://savrn.com/data-center-moratorium-tracker','SAVRN','Moratoria, vetoes and executive actions by jurisdiction.'],
+  ['US Data Center Policy Tracker','https://dcmap.us/insights/policy/','dcmap.us','Pauses, votes and legislation.'],
+  ['Data Center Atlas','https://im3.pnnl.gov/datacenter-atlas','Pacific Northwest National Laboratory, IM3','Open US dataset of data center locations with fiber, power and water layers. Check the license before reuse.'],
+  ['Data Center Map data exports','https://www.datacentermap.com/datadump.html','Data Center Map','Location data in CSV, GeoJSON and KML. Most access is by request, and terms apply.'],
+  ['OpenStreetMap: telecom=data_center','https://wiki.openstreetmap.org/DE:Tag:telecom=data_center','OpenStreetMap wiki','The tag volunteers use to map data centers.']
+ ]},
+ {h:'Legal and process case studies',items:[
+  ['Inside SELC’s Clean Air Act case against xAI','https://techpolicy.press/inside-selcs-clean-air-case-against-xai-in-memphis','Tech Policy Press','How aerial monitoring, notice of intent to sue and permit appeals were combined.'],
+  ['Judge blocks the Prince William Digital Gateway','https://northernvirginiamag.com/news/2025/08/11/judge-blocks-prince-william-digital-gateway-data-center-project/','Northern Virginia Magazine','A public notice defect was the ground for voiding a rezoning.'],
+  ['One Wisconsin city beat back a data center','https://nextcity.org/urbanist-news/one-wisconsin-city-beat-back-a-data-center-coalition-toolkit','Next City','Menomonie’s organizing, and the coalition toolkit that grew from it.']
+ ]},
+ {h:'AI sovereignty and data rights',items:[
+  ['CARE Principles for Indigenous Data Governance','https://doi.org/10.5334/dsj-2020-043','Data Science Journal, 2020',''],
+  ['OCAP principles','https://fnigc.ca/ocap-training/','First Nations Information Governance Centre','Ownership, Control, Access and Possession.'],
+  ['Principles of Māori data sovereignty','https://www.temanararaunga.maori.nz/principles-of-maori-data-sovereignty','Māori Data Sovereignty Network',''],
+  ['How Indigenous communities are protecting data','https://www.waikato.ac.nz/assets/Uploads/Research/Research-institutes-centres-and-groups/Institutes/TKRI/Publications/Science_Kukutai2024_How_Indigenous_Communities_Protecting_Data.pdf','Kukutai, Science, 2024','Te Hiku Media, Kaitiakitanga licenses, Āhau and Te Whata.'],
+  ['Masakhane','https://www.masakhane.io/','Masakhane community','African-led work on language technology and data.']
+ ]}
+];
+
+var STARTERS = [
+ 'A data center was proposed near me. Where do I start?',
+ 'How do I request records about a proposed project?',
+ 'Are there examples of AI sovereignty campaigns outside the US?',
+ 'Does anyone have a model ordinance for water use?'
+];
+var TAGS = ['Starting a campaign','Zoning and permits','Water and power','Legal and records','AI sovereignty','Other'];
+
+/* ---------- helpers ---------- */
+var NS='http://www.w3.org/2000/svg';
+function $(s,r){return (r||document).querySelector(s)}
+function h(tag,props){
+  var e=document.createElement(tag), k, v;
+  props=props||{};
+  for(k in props){v=props[k];
+    if(k==='class')e.className=v;
+    else if(k==='text')e.textContent=v;
+    else if(k.indexOf('on')===0)e.addEventListener(k.slice(2),v);
+    else if(v!==false&&v!=null)e.setAttribute(k,v===true?'':v);
+  }
+  for(var i=2;i<arguments.length;i++){append(e,arguments[i])}
+  return e;
+}
+function append(e,c){
+  if(c==null||c===false)return;
+  if(Array.isArray(c)){c.forEach(function(x){append(e,x)});return}
+  e.appendChild(typeof c==='string'?document.createTextNode(c):c);
+}
+function sv(tag,attrs){var e=document.createElementNS(NS,tag),k;for(k in attrs||{})e.setAttribute(k,attrs[k]);return e}
+function shapeNode(kind){
+  var st='fill:var(--'+kind+')',n;
+  if(kind==='won')n=sv('circle',{r:6.5,style:st});
+  else if(kind==='pause')n=sv('rect',{x:-6,y:-6,width:12,height:12,style:st});
+  else if(kind==='fight')n=sv('polygon',{points:'0,-8 7.5,6 -7.5,6',style:st});
+  else n=sv('polygon',{points:'0,-8 7,0 0,8 -7,0',style:st});
+  n.setAttribute('class','shp');return n;
+}
+function icon(kind,size){
+  var s=sv('svg',{viewBox:'-9 -9 18 18',width:size||14,height:size||14,'aria-hidden':'true'});
+  if(kind==='community'){s.appendChild(sv('circle',{r:6,style:'fill:var(--surface);stroke:var(--ink);stroke-width:2;stroke-dasharray:3 2'}))}
+  else s.appendChild(shapeNode(kind));
+  return s;
+}
+function safeLink(v){
+  try{var u=new URL(v);return u.protocol==='https:'?u.href:null}catch(e){return null}
+}
+function srcLinks(list){
+  var box=h('div',{class:'srcs'},h('span',{text:'Sources'}));
+  list.forEach(function(s){box.appendChild(h('a',{href:s[1],target:'_blank',rel:'noopener noreferrer',text:s[0]}))});
+  return box;
+}
+function fmtDate(ms){try{return new Date(ms).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}catch(e){return ''}}
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- resources ---------- */
+function renderResources(){
+  var box=$('#resources');
+  RESOURCES.forEach(function(g){
+    var ul=h('ul',{class:'rl'});
+    g.items.forEach(function(it){
+      var li=h('li',null,h('a',{href:it[1],target:'_blank',rel:'noopener noreferrer',text:it[0]}),h('span',{class:'by',text:it[2]}));
+      if(it[3])li.appendChild(h('p',{text:it[3]}));
+      ul.appendChild(li);
+    });
+    box.appendChild(h('div',null,h('h3',{text:g.h}),ul));
+  });
+}
+
+/* shared state */
+var forum={state:'loading'};
+var ctx={db:null,user:null,myId:null,admin:false,canWrite:null};
+
+function errText(e){
+  var c=e&&e.code;
+  if(c==='invalid_argument')return 'You can read this space but not post in it. Ask the site owner for Contributor access.';
+  if(c==='quota_exceeded')return 'This space has reached its storage limit. Tell the site owner.';
+  if(c==='resource_exhausted')return 'Too many requests. Wait a moment and try again.';
+  return 'That did not save. Try again in a moment.';
+}
+
+/* ---------- forum ---------- */
+var F={view:'list',threads:[],loaded:false,openId:null,unsub:null,replies:[],draft:null};
+var fapp=$('#fapp');
+
+function fillNames(root){
+  var nodes=[].slice.call(root.querySelectorAll('[data-uid]'));
+  if(!nodes.length)return;
+  var ids=[];nodes.forEach(function(n){var u=n.getAttribute('data-uid');if(u&&u!=='none'&&ids.indexOf(u)<0)ids.push(u)});
+  var done=function(ps){nodes.forEach(function(n){var p=ps&&ps[n.getAttribute('data-uid')];n.textContent=((p&&p.name)||'Member')+(p&&p.isMe?' (you)':'')})};
+  if(!ctx.user||!ids.length){done({});return}
+  ctx.user.profiles(ids).then(done,function(){done({})});
+}
+function canDelete(by){return !!(ctx.db&&((by&&by===ctx.myId)||ctx.admin))}
+
+function renderForum(){
+  fapp.textContent='';
+  if(forum.state==='loading'){fapp.appendChild(h('p',{class:'muted',text:'Connecting to the forum.'}));return}
+  if(forum.state==='off'){
+    fapp.appendChild(h('div',{class:'ftop'},h('h3',{text:'Forum'})));
+    fapp.appendChild(h('p',{text:'The forum opens for signed-in people. Sign in to read and post.'}));
+    fapp.appendChild(h('p',{class:'muted',text:'If you are signed in and still see this message, the page may be open in a preview or a public link that does not carry forum access. Open it from your claude.ai account.'}));
+    return;
+  }
+  if(F.view==='new')return renderNew();
+  if(F.view==='thread')return renderThread();
+  renderList();
+}
+function writeNote(){
+  return ctx.canWrite===false?h('p',{class:'muted',text:'You can read the forum. Posting is limited to Contributors. Ask the site owner for access.'}):null;
+}
+function renderList(){
+  var top=h('div',{class:'ftop'},h('h3',{text:'Threads'}),
+    h('button',{class:'btn',type:'button',disabled:ctx.canWrite===false,onclick:function(){F.draft=null;F.view='new';renderForum()}},'New thread'));
+  fapp.appendChild(top);
+  var wn=writeNote();if(wn)fapp.appendChild(wn);
+  if(!F.loaded){fapp.appendChild(h('p',{class:'muted',text:'Loading threads.'}));return}
+  if(!F.threads.length){
+    fapp.appendChild(h('p',{text:'No threads yet. Be the first. Ask what you are facing, or share a win.'}));
+    return;
+  }
+  var ul=h('ul',{class:'threads'});
+  F.threads.forEach(function(t){
+    var li=h('li',null,h('button',{class:'trow',type:'button',onclick:function(){openThread(t.id)}},
+      h('span',{class:'tt',text:t.title||'Untitled'}),
+      h('span',{class:'meta'},h('span',{text:t.tag||'Other'}),h('span',{'data-uid':t.by||'none',text:'Member'}),h('span',{text:'Last activity '+fmtDate(t.lastAt||t.at)}))));
+    ul.appendChild(li);
+  });
+  fapp.appendChild(ul);fillNames(ul);
+}
+function renderNew(){
+  var d=F.draft||{};
+  fapp.appendChild(h('div',{class:'ftop'},h('h3',{text:'New thread'}),h('button',{class:'btn ghost small',type:'button',onclick:function(){F.view='list';renderForum()}},'Back to threads')));
+  var tagSel=h('select',{id:'th-tag'});TAGS.forEach(function(t){tagSel.appendChild(h('option',{value:t,text:t}))});
+  if(d.tag)tagSel.value=d.tag;
+  var form=h('form',{novalidate:true},
+    h('div',{class:'field'},h('label',{for:'th-tag',text:'Topic'}),tagSel),
+    h('div',{class:'field'},h('label',{for:'th-title',text:'Title'}),h('input',{type:'text',id:'th-title',maxlength:'120',value:d.title||'',autocomplete:'off'})),
+    h('div',{class:'field'},h('label',{for:'th-body',text:'Details'}),h('textarea',{id:'th-body',maxlength:'2000'}),h('div',{class:'help',text:'Up to 2,000 characters. Do not include personal details about private individuals.'})),
+    h('p',{class:'err',id:'th-err',hidden:true}),
+    h('div',{class:'row'},h('button',{class:'btn',type:'submit',id:'th-post'},'Post thread'),h('button',{class:'btn ghost',type:'button',onclick:function(){F.view='list';renderForum()}},'Cancel')));
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var title=$('#th-title').value.trim(),body=$('#th-body').value.trim(),err=$('#th-err');err.hidden=true;
+    if(!title||!body){err.textContent='Add a title and some details.';err.hidden=false;return}
+    var b=$('#th-post');b.disabled=true;var now=Date.now();
+    ctx.db.collection('threads').add({title:title.slice(0,120),body:body.slice(0,2000),tag:$('#th-tag').value,by:ctx.myId||null,at:now,lastAt:now})
+      .then(function(ref){F.view='thread';F.openId=ref.id;openThread(ref.id)})
+      .catch(function(x){err.textContent=errText(x);err.hidden=false;b.disabled=false});
+  });
+  fapp.appendChild(form);
+  var ta=$('#th-body');if(d.body)ta.value=d.body;
+  (d.title?ta:$('#th-title')).focus();
+}
+function openThread(id){
+  F.openId=id;F.view='thread';F.replies=[];
+  if(F.unsub){F.unsub();F.unsub=null}
+  renderForum();
+  try{
+    F.unsub=ctx.db.collection('threads/'+id+'/replies').orderBy('at','asc').limit(300).onSnapshot(function(s){
+      F.replies=s.docs.map(function(d){var o=d.data();o.id=d.id;return o});paintReplies();
+    },function(){paintReplies()});
+  }catch(e){}
+}
+function closeThread(){if(F.unsub){F.unsub();F.unsub=null}F.view='list';F.openId=null;renderForum()}
+var repliesBox=null;
+function renderThread(){
+  var t=F.threads.filter(function(x){return x.id===F.openId})[0];
+  fapp.appendChild(h('div',{class:'ftop'},h('button',{class:'btn ghost small',type:'button',onclick:closeThread},'Back to threads')));
+  if(!t){fapp.appendChild(h('p',{class:'muted',text:F.loaded?'This thread is no longer available.':'Loading thread.'}));return}
+  fapp.appendChild(h('span',{class:'pill',text:t.tag||'Other'}));
+  fapp.appendChild(h('h3',{text:t.title||'Untitled',style:'margin-top:8px;overflow-wrap:anywhere'}));
+  fapp.appendChild(h('div',{class:'meta'},h('span',{'data-uid':t.by||'none',text:'Member'}),h('span',{text:fmtDate(t.at)})));
+  fapp.appendChild(h('div',{class:'body',text:t.body||''}));
+  if(canDelete(t.by)){
+    fapp.appendChild(h('button',{class:'btn ghost small',type:'button',onclick:function(){deleteThread(t)}},'Delete thread'));
+  }
+  fapp.appendChild(h('h3',{text:'Replies',style:'margin-top:20px;font-size:1.2rem'}));
+  repliesBox=h('div',{id:'replies'});fapp.appendChild(repliesBox);
+  var wn=writeNote();
+  if(wn)fapp.appendChild(wn);
+  else{
+    var f=h('form',{novalidate:true,style:'margin-top:14px'},
+      h('div',{class:'field'},h('label',{for:'rp-body',text:'Your reply'}),h('textarea',{id:'rp-body',maxlength:'1500',style:'min-height:100px'})),
+      h('p',{class:'err',id:'rp-err',hidden:true}),
+      h('button',{class:'btn',type:'submit',id:'rp-post'},'Post reply'));
+    f.addEventListener('submit',function(e){
+      e.preventDefault();var body=$('#rp-body').value.trim(),err=$('#rp-err');err.hidden=true;
+      if(!body){err.textContent='Write a reply first.';err.hidden=false;return}
+      var b=$('#rp-post');b.disabled=true;var now=Date.now();
+      ctx.db.collection('threads/'+t.id+'/replies').add({body:body.slice(0,1500),by:ctx.myId||null,at:now})
+        .then(function(){return ctx.db.doc('threads/'+t.id).update({lastAt:now})})
+        .then(function(){$('#rp-body').value='';b.disabled=false})
+        .catch(function(x){err.textContent=errText(x);err.hidden=false;b.disabled=false});
+    });
+    fapp.appendChild(f);
+  }
+  paintReplies();fillNames(fapp);
+}
+function paintReplies(){
+  if(!repliesBox||F.view!=='thread')return;
+  repliesBox.textContent='';
+  if(!F.replies.length){repliesBox.appendChild(h('p',{class:'muted',text:'No replies yet.'}));return}
+  F.replies.forEach(function(r){
+    var row=h('div',{class:'reply'},
+      h('div',{class:'meta'},h('span',{'data-uid':r.by||'none',text:'Member'}),h('span',{text:fmtDate(r.at)})),
+      h('div',{class:'body',text:r.body||''}));
+    if(canDelete(r.by)){
+      row.appendChild(h('button',{class:'linkbtn',type:'button',onclick:function(){
+        ctx.db.doc('threads/'+F.openId+'/replies/'+r.id).delete().catch(function(){});
+      }},'Delete reply'));
+    }
+    repliesBox.appendChild(row);
+  });
+  fillNames(repliesBox);
+}
+function deleteThread(t){
+  var col=ctx.db.collection('threads/'+t.id+'/replies');
+  col.get().then(function(s){
+    return s.docs.reduce(function(p,d){return p.then(function(){return col.doc(d.id).delete()})},Promise.resolve());
+  }).then(function(){return ctx.db.doc('threads/'+t.id).delete()})
+    .then(function(){closeThread()})
+    .catch(function(){});
+}
+function renderStarters(){
+  var box=$('#starters');box.textContent='';
+  STARTERS.forEach(function(s){
+    box.appendChild(h('button',{class:'chip',type:'button',onclick:function(){
+      if(forum.state!=='ready'||ctx.canWrite===false){$('#fapp').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});return}
+      F.draft={title:s};F.view='new';if(F.unsub){F.unsub();F.unsub=null}renderForum();$('#fapp').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+    }},s));
+  });
+}
+
+/* ---------- live data ---------- */
+function initLive(){
+  var cl=window.claude;
+  if(!cl||!cl.use){forum.state='off';renderForum();return}
+  var timer=setTimeout(function(){if(forum.state==='loading'){forum.state='off';renderForum()}},15000);
+  Promise.all([cl.use('db'),cl.use('user')]).then(function(r){
+    clearTimeout(timer);
+    ctx.db=r[0];ctx.user=r[1];
+    if(!ctx.db){forum.state='off';renderForum();return}
+    var p=ctx.user?Promise.all([ctx.user.me(),ctx.user.canEdit(),ctx.user.can('data.write')]):Promise.resolve([{id:null},false,null]);
+    return p.then(function(v){
+      ctx.myId=v[0]&&v[0].id;ctx.admin=!!v[1];ctx.canWrite=v[2];
+      forum.state='ready';renderForum();
+      ctx.db.collection('threads').orderBy('lastAt','desc').limit(100).onSnapshot(function(s){
+        F.threads=s.docs.map(function(d){var o=d.data();o.id=d.id;return o});F.loaded=true;
+        if(F.view==='list')renderForum();
+        else if(F.view==='thread'&&!F.threads.some(function(t){return t.id===F.openId}))closeThread();
+      },function(){F.loaded=true;if(F.view==='list')renderForum()});
+    });
+  }).catch(function(){clearTimeout(timer);forum.state='off';renderForum()});
+}
+
+/* ---------- people and views ---------- */
+/* A profile looks like: {id:'a-name',name:'',role:'',place:'',photo:'',tags:[],summary:'',work:'',community:'',interview:[{q:'',a:''}],links:[['Title','https://example.org']],date:'Oct 2026',reviewed:true}. Photos must be data:image URIs or uploaded asset paths. */
+var PROFILES=[];
+var openPerson=null;
+function initials(n){return String(n||'').split(/\s+/).filter(Boolean).slice(0,2).map(function(w){return w.charAt(0)}).join('').toUpperCase()}
+function photoOk(src){return typeof src==='string'&&(/^data:image\//.test(src)||src.indexOf('/_blob/')===0)}
+function avatarNode(p,cls){
+  var d=h('div',{class:cls});
+  if(photoOk(p.photo))d.appendChild(h('img',{src:p.photo,alt:'Portrait of '+p.name}));
+  else d.appendChild(h('span',{text:initials(p.name),'aria-hidden':'true'}));
+  return d;
+}
+function roleLine(p){return [p.role,p.place].filter(Boolean).join(' | ')}
+function nominate(){
+  showView('home','forum');
+  if(forum.state==='ready'&&ctx.canWrite!==false){
+    if(F.unsub){F.unsub();F.unsub=null}
+    F.draft={title:'Suggest someone to profile',tag:'Other'};F.view='new';renderForum();
+  }
+}
+function personCard(p){
+  return h('article',{class:'person'},avatarNode(p,'ph'),
+    h('div',{class:'pb'},
+      h('h3',{text:p.name}),
+      h('div',{class:'role',text:roleLine(p)}),
+      p.summary?h('p',{text:p.summary}):null,
+      (p.tags&&p.tags.length)?h('div',{class:'tags'},p.tags.map(function(t){return h('span',{class:'tag',text:t})})):null,
+      h('button',{class:'linkbtn',type:'button',onclick:function(){openPerson=p.id;renderPeople();window.scrollTo(0,0)}},'Read profile')));
+}
+function pblock(title,text){return text?h('div',{class:'pblock'},h('h4',{text:title}),h('p',{class:'ptext',text:text})):null}
+function renderPerson(box,p){
+  var wrap=h('div',{class:'pdetail'});
+  wrap.appendChild(h('button',{class:'btn ghost small',type:'button',onclick:function(){openPerson=null;renderPeople()}},'All profiles'));
+  wrap.appendChild(h('div',{class:'phead'},avatarNode(p,'ph big'),h('div',null,
+    h('h3',{text:p.name}),h('div',{class:'role',text:roleLine(p)}),
+    (p.tags&&p.tags.length)?h('div',{class:'tags',style:'margin-top:8px'},p.tags.map(function(t){return h('span',{class:'tag',text:t})})):null)));
+  wrap.appendChild(pblock('Summary',p.summary));
+  wrap.appendChild(pblock('Their work',p.work));
+  wrap.appendChild(pblock('Their community',p.community));
+  if(p.interview&&p.interview.length){
+    var dl=h('dl',{class:'qa'});
+    p.interview.forEach(function(x){dl.appendChild(h('dt',{text:x.q}));dl.appendChild(h('dd',{text:x.a}))});
+    wrap.appendChild(h('div',{class:'pblock'},h('h4',{text:'In their words'}),dl));
+  }
+  var links=(p.links||[]).map(function(l){var u=safeLink(l[1]);return u?h('li',null,h('a',{href:u,target:'_blank',rel:'noopener noreferrer',text:l[0]})):null}).filter(Boolean);
+  if(links.length)wrap.appendChild(h('div',{class:'pblock'},h('h4',{text:'Follow their work'}),h('ul',{class:'plinks'},links)));
+  if(p.date)wrap.appendChild(h('p',{class:'fine',text:'Interviewed '+p.date+(p.reviewed?'. Reviewed by '+p.name+' before publication.':'.')}));
+  box.appendChild(wrap);
+}
+function renderPeople(){
+  var box=$('#people-body');box.textContent='';
+  if(openPerson){
+    var p=PROFILES.filter(function(x){return x.id===openPerson})[0];
+    if(p){renderPerson(box,p);return}
+    openPerson=null;
+  }
+  if(!PROFILES.length){
+    box.appendChild(h('div',{class:'empty'},
+      h('h3',{text:'Profiles are on the way'}),
+      h('p',{text:'The first interviews will appear here. Each profile covers who the person is, the work they do and the community they do it with.'}),
+      h('div',{class:'row'},h('button',{class:'btn',type:'button',onclick:nominate},'Suggest someone to profile'))));
+    return;
+  }
+  box.appendChild(h('div',{class:'pgrid2'},PROFILES.map(personCard)));
+  box.appendChild(h('p',{style:'margin-top:20px'},h('button',{class:'btn ghost small',type:'button',onclick:nominate},'Suggest someone to profile')));
+}
+function showView(name,targetId){
+  var home=$('#view-home'),ppl=$('#view-people');
+  home.hidden=name!=='home';ppl.hidden=name!=='people';
+  var pl=document.querySelector('.links a[href="#people"]');
+  if(pl){if(name==='people')pl.setAttribute('aria-current','page');else pl.removeAttribute('aria-current')}
+    var t=targetId&&targetId!=='top'?document.getElementById(targetId):null;
+  if(t)t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  else window.scrollTo(0,0);
+}
+document.addEventListener('click',function(e){
+  if(e.defaultPrevented)return;
+  var a=e.target&&e.target.closest?e.target.closest('a[href^="#"]'):null;
+  if(!a)return;
+  var id=a.getAttribute('href').slice(1);
+  var onPeople=!$('#view-people').hidden;
+  if(id==='people'){e.preventDefault();showView('people');return}
+  if(onPeople&&(id==='top'||$('#view-home').contains(document.getElementById(id)))){e.preventDefault();showView('home',id)}
+});
+function initView(){
+  try{if(location.hash==='#people')showView('people')}catch(e){}
+}
+
+/* ---------- boot ---------- */
+renderResources();renderStarters();
+renderForum();renderPeople();initView();
+setTimeout(initLive,0);
+})();
+</script>
+
+</body></html>
